@@ -16,6 +16,19 @@ app.post('/users', (req, res) => {
     }).catch((e) => {
         res.status(400).send(e)
     })
+});
+
+app.get('/users/:id',(req,res)=>{
+    const _id=req.params.id
+    
+    User.findById(_id).then(user=>{
+        if(!user){
+            return res.status(404).send()
+        }
+        res.status(200).send(user)
+    }).catch(err =>{
+        res.status(500).send()
+    })
 })
 
 app.post('/tasks',(req,res)=>{
