@@ -1,2 +1,2 @@
-*nodemodules
-*src/db
+node_modules/
+src/db/
